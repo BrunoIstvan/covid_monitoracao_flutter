@@ -12,27 +12,37 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     return Scaffold(
-      appBar: AppBar(
-        title: Text("COVID-19 Monitoração"),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.refresh),
-            onPressed: () => _globalController.fetchData(),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.only(top: 8),
-          child: Column(
-            children: <Widget>[
-              _buildLastUpdateItem(),
-              GlobalCaseWidget(),
-              _buildSelectedCountryCaseWidget(),
-            ],
-          ),
+      appBar: _buildAppBar(),
+      body: _buildBody(),
+    );
+  }
+
+  //
+  SingleChildScrollView _buildBody() {
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.only(top: 8),
+        child: Column(
+          children: <Widget>[
+            _buildLastUpdateItem(),
+            GlobalCaseWidget(),
+            _buildSelectedCountryCaseWidget(),
+          ],
         ),
       ),
+    );
+  }
+
+  //
+  AppBar _buildAppBar() {
+    return AppBar(
+      title: Text("COVID-19 Monitoração"),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.refresh),
+          onPressed: () => _globalController.fetchData(),
+        ),
+      ],
     );
   }
 

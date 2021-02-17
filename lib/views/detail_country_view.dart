@@ -11,21 +11,32 @@ class DetailCountryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-            "${_globalController.selectedCountries.value} Detalhes de Casos"),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(16),
-          child: Column(
-            children: <Widget>[
-              _buildChart(),
-              Padding(padding: EdgeInsets.only(top: 16)),
-              CommonGeneralCaseWidget(),
-            ],
-          ),
+      appBar: _buildAppBar(),
+      body: _buildBody(),
+    );
+  }
+
+  //
+  SingleChildScrollView _buildBody() {
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: <Widget>[
+            _buildChart(),
+            Padding(padding: EdgeInsets.only(top: 16)),
+            CommonGeneralCaseWidget(),
+          ],
         ),
+      ),
+    );
+  }
+
+  //
+  AppBar _buildAppBar() {
+    return AppBar(
+      title: Text(
+        "${_globalController.selectedCountries.value} Detalhes de Casos",
       ),
     );
   }
