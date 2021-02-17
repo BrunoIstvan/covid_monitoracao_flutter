@@ -21,14 +21,16 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        padding: EdgeInsets.only(top: 8),
-        child: Column(
-          children: <Widget>[
-            _buildLastUpdateItem(),
-            GlobalCaseWidget(),
-            _buildSelectedCountryCaseWidget(),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(top: 8),
+          child: Column(
+            children: <Widget>[
+              _buildLastUpdateItem(),
+              GlobalCaseWidget(),
+              _buildSelectedCountryCaseWidget(),
+            ],
+          ),
         ),
       ),
     );

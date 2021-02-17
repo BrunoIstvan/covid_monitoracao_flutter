@@ -15,14 +15,16 @@ class DetailCountryView extends StatelessWidget {
         title: Text(
             "${_globalController.selectedCountries.value} Detalhes de Casos"),
       ),
-      body: Container(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          children: <Widget>[
-            _buildChart(),
-            Padding(padding: EdgeInsets.only(top: 16)),
-            CommonGeneralCaseWidget(),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: <Widget>[
+              _buildChart(),
+              Padding(padding: EdgeInsets.only(top: 16)),
+              CommonGeneralCaseWidget(),
+            ],
+          ),
         ),
       ),
     );
